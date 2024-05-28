@@ -1,12 +1,12 @@
-var suid_value;
-var utm_campaign_value;
+let suid_value;
+let utm_campaign_value;
 
 $(function ($) {
-  var params = $(location).attr("search").replace("?", "&").split("&");
-  var query = {};
-  var has_suid = false;
+  let params = $(location).attr("search").replace("?", "&").split("&");
+  let query = {};
+  let has_suid = false;
   for (i = 0; i < params.length; i++) {
-    var t = params[i].split("=");
+    let t = params[i].split("=");
     query[t[0]] = t[1];
     if (t[0] == "suid") {
       has_suid = true;
@@ -27,7 +27,7 @@ $(function ($) {
       .replace("?", "&")
       .split("&");
     for (j = 0; j < work.length; j++) {
-      var tt = work[j].split("=");
+      let tt = work[j].split("=");
       if (tt[0] == "yclid") {
         query["yclid"] = tt[1];
       }
@@ -70,9 +70,9 @@ $(function ($) {
   }
 
   function rename(atag) {
-    old = atag.attr("href");
+    let old = atag.attr('href');
     try {
-      var lnk = new URL(atag.attr("href"));
+      let lnk = new URL(atag.attr("href"));
       if (lnk.hostname == "tr.threeate.jp") {
         if (utm_campaign_value)
           lnk.searchParams.append("utm_campaign", utm_campaign_value);
